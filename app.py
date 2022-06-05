@@ -35,19 +35,19 @@ def main():
         if 'Confusion Matrix' in metrics_list:
             st.subheader("Confusion Matrix")
             fig, ax = plt.subplots()
-            ax.plot_confusion_matrix(model, x_test, y_test, display_labels=class_names)
+            plot_confusion_matrix(model, x_test, y_test, display_labels=class_names)
             st.pyplot(fig)
 
         if 'ROC Curve' in metrics_list:
             st.subheader("ROC Curve")
             ig, ax = plt.subplots()
-            ax.plot_roc_curve(model, x_test, y_test)
+            plot_roc_curve(model, x_test, y_test)
             st.pyplot(fig)
         
         if 'Precision-Recall Curve' in metrics_list:
             st.subheader('Precision-Recall Curve')
-            ig, ax = plt.subplots()
-            ax.plot_precision_recall_curve(model, x_test, y_test)
+            fig, ax = plt.subplots()
+            plot_precision_recall_curve(model, x_test, y_test)
             st.pyplot(fig)
 
     df = load_data()
