@@ -36,7 +36,7 @@ def main():
         if 'Confusion Matrix' in metrics_list:
             st.subheader("Confusion Matrix")
             fig, ax = plt.subplots()
-            ax.confusionMatrixDisplay.from_estimator(model, x_test, y_test, display_labels=class_names)
+            ax = confusionMatrixDisplay.from_estimator(model, x_test, y_test, display_labels=class_names)
             st.pyplot(fig)
   
 
