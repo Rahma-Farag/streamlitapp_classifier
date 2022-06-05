@@ -36,14 +36,16 @@ def main():
         if 'Confusion Matrix' in metrics_list:
             st.subheader("Confusion Matrix")
             fig, ax = plt.subplots()
-            ax = confusionMatrixDisplay.from_estimator(model, x_test, y_test, display_labels=class_names)
+            ax = lot_confusion_matrix(model, x_test, y_test, display_labels=class_names)
+            #ax = confusionMatrixDisplay.from_estimator(model, x_test, y_test, display_labels=class_names)
             st.pyplot(fig)
   
 
         if 'ROC Curve' in metrics_list:
             st.subheader("ROC Curve")
-            plot_roc_curve(model, x_test, y_test)
-            st.pyplot()
+            fig, ax = plt.subplots()
+            ax = plot_roc_curve(model, x_test, y_test)
+            st.pyplot(fig)
         
         if 'Precision-Recall Curve' in metrics_list:
             st.subheader('Precision-Recall Curve')
